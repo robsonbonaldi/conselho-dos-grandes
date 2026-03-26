@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Conselho dos Grandes</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
@@ -12,210 +12,169 @@
   --text:#e8dcc8;--text-dim:#7a6a52;
   --border:#2a2018;--border-gold:#3d2f15;--blue:#4a7c9e;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{font-size:16px;}
 body{background:var(--bg-deep);color:var(--text);font-family:'EB Garamond',serif;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 15%,rgba(201,168,76,.05) 0%,transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(74,124,158,.04) 0%,transparent 50%);pointer-events:none;z-index:0;}
-.wrap{max-width:900px;margin:0 auto;padding:0 18px 40px;position:relative;z-index:1;}
-
-/* HEADER */
-header{text-align:center;padding:44px 20px 24px;}
-.orn{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px;}
-.orn::before,.orn::after{content:'';flex:1;max-width:140px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.orn span{color:var(--gold);font-size:20px;}
-h1{font-family:'Cinzel Decorative',cursive;font-size:clamp(18px,4vw,34px);color:var(--gold);letter-spacing:3px;line-height:1.25;text-shadow:0 0 40px rgba(201,168,76,.25);margin-bottom:10px;}
-.sub{font-family:'Cinzel',serif;font-size:clamp(8px,1.6vw,11px);color:var(--text-dim);letter-spacing:5px;text-transform:uppercase;}
-
-/* API KEY PANEL */
-.api-panel{background:#0f0c08;border:1px solid #3d2f15;border-radius:5px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 60px;position:relative;z-index:1;}
+header{text-align:center;padding:36px 16px 20px;}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:12px;}
+.orn::before,.orn::after{content:'';flex:1;max-width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.orn span{color:var(--gold);font-size:18px;}
+h1{font-family:'Cinzel Decorative',cursive;font-size:clamp(16px,5.5vw,34px);color:var(--gold);letter-spacing:2px;line-height:1.3;text-shadow:0 0 40px rgba(201,168,76,.25);margin-bottom:8px;}
+.sub{font-family:'Cinzel',serif;font-size:clamp(8px,2.2vw,11px);color:var(--text-dim);letter-spacing:4px;text-transform:uppercase;}
+.api-panel{background:#0f0c08;border:1px solid #3d2f15;border-radius:6px;padding:14px 16px;margin-bottom:18px;}
+.api-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
 .api-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);white-space:nowrap;}
-input.api-input{flex:1;min-width:200px;background:rgba(0,0,0,.3);border:1px solid var(--border-gold);color:var(--gold-light);font-family:'EB Garamond',serif;font-size:14px;padding:8px 12px;outline:none;border-radius:3px;letter-spacing:1px;}
+input.api-input{flex:1;min-width:160px;background:rgba(0,0,0,.3);border:1px solid var(--border-gold);color:var(--gold-light);font-family:'EB Garamond',serif;font-size:16px;padding:10px 12px;outline:none;border-radius:4px;letter-spacing:1px;-webkit-appearance:none;appearance:none;}
 input.api-input::placeholder{color:var(--text-dim);letter-spacing:0;}
-.api-save{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;padding:8px 14px;cursor:pointer;border-radius:3px;transition:all .2s;text-transform:uppercase;white-space:nowrap;}
-.api-save:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
-.api-status{font-size:11px;width:100%;color:var(--text-dim);font-style:italic;}
+.api-save{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;padding:10px 16px;cursor:pointer;border-radius:4px;transition:all .2s;text-transform:uppercase;white-space:nowrap;min-height:44px;}
+.api-save:hover,.api-save:active{border-color:var(--gold);background:rgba(201,168,76,.08);}
+.api-status{font-size:12px;color:var(--text-dim);font-style:italic;margin-top:4px;}
 .api-status.ok{color:#6a9e6a;}
 .api-status.err{color:#d48;}
-
-/* LANG */
-.lang-bar{display:flex;justify-content:center;gap:10px;margin:14px 0 6px;}
-.lang-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;padding:6px 16px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
+.lang-bar{display:flex;justify-content:center;gap:10px;margin:12px 0 6px;}
+.lang-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;padding:8px 20px;cursor:pointer;transition:all .2s;text-transform:uppercase;min-height:44px;border-radius:3px;}
 .lang-btn.active{border-color:var(--gold);color:var(--gold);}
-
-.div{display:flex;align-items:center;gap:14px;margin:22px 0;}
+.div{display:flex;align-items:center;gap:14px;margin:20px 0;}
 .div::before,.div::after{content:'';flex:1;height:1px;background:var(--border);}
 .div-d{width:7px;height:7px;background:var(--gold-dim);transform:rotate(45deg);}
-
-/* WEIGHTS */
-.w-bar{display:flex;gap:8px;justify-content:center;align-items:center;margin-bottom:22px;flex-wrap:wrap;}
-.w-chip{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;padding:4px 12px;border-radius:20px;text-transform:uppercase;}
+.w-bar{display:flex;gap:6px;justify-content:center;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+.w-chip{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;padding:5px 12px;border-radius:20px;text-transform:uppercase;}
 .wj{background:rgba(74,124,158,.15);border:1px solid rgba(74,124,158,.4);color:#7eb8d8;}
 .wi{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold);}
 .ws{background:rgba(180,180,180,.08);border:1px solid rgba(180,180,180,.2);color:#aaa;}
-
-/* GRID */
 .sec-lbl{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--text-dim);text-align:center;margin-bottom:14px;}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px;}
-@media(max-width:600px){.grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:380px){.grid{grid-template-columns:repeat(2,1fr);}}
-
-.c-btn{background:var(--bg-card);border:1px solid var(--border);border-radius:5px;padding:11px 6px;text-align:center;cursor:pointer;transition:all .22s;position:relative;overflow:hidden;user-select:none;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;}
+@media(max-width:480px){.grid{grid-template-columns:repeat(3,1fr);gap:6px;}}
+@media(max-width:320px){.grid{grid-template-columns:repeat(2,1fr);}}
+.c-btn{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:12px 6px;text-align:center;cursor:pointer;transition:all .22s;position:relative;overflow:hidden;user-select:none;min-height:44px;-webkit-tap-highlight-color:transparent;}
 .c-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.07),transparent);opacity:0;transition:opacity .22s;}
-.c-btn:hover::after,.c-btn.on::after{opacity:1;}
-.c-btn:hover{border-color:var(--gold-dim);transform:translateY(-2px);}
+.c-btn:active::after,.c-btn.on::after{opacity:1;}
 .c-btn.on{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,.18);}
 .c-btn.jc.on{border-color:var(--blue);box-shadow:0 0 18px rgba(74,124,158,.25);}
-.ci{font-size:20px;display:block;margin-bottom:5px;}
-.cn{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.4px;color:var(--gold-light);display:block;line-height:1.3;}
-.ce{font-size:7px;color:var(--text-dim);display:block;margin-top:1px;}
+.ci{font-size:22px;display:block;margin-bottom:4px;}
+.cn{font-family:'Cinzel',serif;font-size:7px;letter-spacing:.3px;color:var(--gold-light);display:block;line-height:1.3;}
+.ce{font-size:6.5px;color:var(--text-dim);display:block;margin-top:1px;}
 .jbadge{display:inline-block;font-size:6px;font-family:'Cinzel',serif;color:var(--blue);border:1px solid var(--blue);padding:1px 4px;margin-top:3px;letter-spacing:1px;border-radius:2px;}
-
 .sel-ctrl{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
-.sm-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;padding:6px 14px;cursor:pointer;transition:all .2s;text-transform:uppercase;border-radius:2px;}
-.sm-btn:hover{border-color:var(--gold-dim);color:var(--gold-light);}
-
-/* QUESTION */
-.q-panel{background:var(--bg-panel);border:1px solid var(--border-gold);border-radius:4px;padding:22px;margin-bottom:16px;position:relative;}
-.q-panel::before{content:'❝';position:absolute;top:12px;left:16px;font-size:28px;color:var(--gold-dim);opacity:.35;line-height:1;}
-.q-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;padding-left:4px;}
-textarea.qi{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border-gold);color:var(--text);font-family:'EB Garamond',serif;font-size:17px;line-height:1.7;padding:10px 6px;resize:none;min-height:88px;outline:none;transition:border-color .2s;}
+.sm-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;padding:10px 20px;cursor:pointer;transition:all .2s;text-transform:uppercase;border-radius:3px;min-height:44px;}
+.sm-btn:hover,.sm-btn:active{border-color:var(--gold-dim);color:var(--gold-light);}
+.q-panel{background:var(--bg-panel);border:1px solid var(--border-gold);border-radius:6px;padding:18px 16px;margin-bottom:14px;position:relative;}
+.q-panel::before{content:'❝';position:absolute;top:10px;left:14px;font-size:24px;color:var(--gold-dim);opacity:.35;line-height:1;}
+.q-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:10px;padding-left:4px;}
+textarea.qi{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border-gold);color:var(--text);font-family:'EB Garamond',serif;font-size:16px;line-height:1.7;padding:8px 6px;resize:none;min-height:90px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
 textarea.qi:focus{border-bottom-color:var(--gold);}
 textarea.qi::placeholder{color:var(--text-dim);font-style:italic;}
-.ctx-w{margin-top:13px;}
-.ctx-l{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:5px;}
-input.ci2{width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);color:var(--text-dim);font-family:'EB Garamond',serif;font-size:14px;padding:8px 12px;outline:none;border-radius:3px;transition:border-color .2s;}
+.ctx-w{margin-top:12px;}
+.ctx-l{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:6px;}
+input.ci2{width:100%;background:rgba(0,0,0,.2);border:1px solid var(--border);color:var(--text-dim);font-family:'EB Garamond',serif;font-size:16px;padding:10px 12px;outline:none;border-radius:4px;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
 input.ci2:focus{border-color:var(--border-gold);color:var(--text);}
 input.ci2::placeholder{color:var(--text-dim);}
-
-.sub-row{display:flex;justify-content:center;margin-bottom:32px;}
-.ask-btn{background:linear-gradient(135deg,#2a1f0a,#1a1508);border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:14px 36px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.sub-row{display:flex;justify-content:center;margin-bottom:28px;}
+.ask-btn{background:linear-gradient(135deg,#2a1f0a,#1a1508);border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;border-radius:3px;min-height:52px;width:100%;max-width:340px;-webkit-tap-highlight-color:transparent;}
 .ask-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.1),transparent);opacity:0;transition:opacity .25s;}
-.ask-btn:hover::before{opacity:1;}
-.ask-btn:hover{box-shadow:0 0 28px rgba(201,168,76,.2);transform:translateY(-1px);}
-.ask-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
-
-/* LOADING */
+.ask-btn:active::before{opacity:1;}
+.ask-btn:disabled{opacity:.4;cursor:not-allowed;}
 .loading{text-align:center;padding:40px;display:none;}
 .loading.show{display:block;}
 .spinner{display:inline-block;width:28px;height:28px;border:2px solid var(--border-gold);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .lt{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--text-dim);}
-.ls{font-size:13px;color:var(--text-dim);margin-top:5px;font-style:italic;}
-.progress-wrap{margin-top:16px;background:var(--border);border-radius:10px;height:3px;overflow:hidden;max-width:300px;margin-left:auto;margin-right:auto;}
+.ls{font-size:14px;color:var(--text-dim);margin-top:6px;font-style:italic;}
+.progress-wrap{margin-top:16px;background:var(--border);border-radius:10px;height:3px;overflow:hidden;max-width:280px;margin-left:auto;margin-right:auto;}
 .progress-bar{height:3px;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:10px;width:0%;transition:width .4s ease;}
-
-/* RESULTS */
 .results{display:none;}
 .results.show{display:block;}
-.res-hdr{text-align:center;margin-bottom:24px;}
-.res-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--text-dim);}
-.res-q{font-size:17px;color:var(--gold-light);margin-top:7px;font-style:italic;line-height:1.5;}
-
-/* JESUS */
-.j-card{background:linear-gradient(135deg,#0d1a24,#0a1520);border:1px solid rgba(74,124,158,.5);border-radius:6px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden;}
+.res-hdr{text-align:center;margin-bottom:22px;}
+.res-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--text-dim);}
+.res-q{font-size:16px;color:var(--gold-light);margin-top:7px;font-style:italic;line-height:1.55;}
+.j-card{background:linear-gradient(135deg,#0d1a24,#0a1520);border:1px solid rgba(74,124,158,.5);border-radius:7px;padding:20px 16px;margin-bottom:18px;position:relative;overflow:hidden;}
 .j-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);}
-.j-card::after{content:'✝';position:absolute;top:14px;right:18px;font-size:24px;opacity:.15;color:var(--blue);}
+.j-card::after{content:'✝';position:absolute;top:12px;right:14px;font-size:22px;opacity:.15;color:var(--blue);}
 .jw-badge{display:inline-block;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;background:rgba(74,124,158,.2);border:1px solid rgba(74,124,158,.5);color:#7eb8d8;padding:3px 10px;border-radius:3px;margin-bottom:12px;text-transform:uppercase;}
 .ra{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.ri{font-size:24px;}
-.rn{font-family:'Cinzel',serif;font-size:13px;color:var(--gold-light);}
+.ri{font-size:22px;}
+.rn{font-family:'Cinzel',serif;font-size:14px;color:var(--gold-light);}
 .rr{font-size:12px;color:var(--text-dim);font-style:italic;}
-.rb{font-size:15.5px;line-height:1.82;color:var(--text);}
+.rb{font-size:15px;line-height:1.85;color:var(--text);}
 .rb p{margin-bottom:10px;}
-
-/* INDIVIDUAL */
-.ig{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-@media(max-width:560px){.ig{grid-template-columns:1fr;}}
-.ic{background:var(--bg-card);border:1px solid var(--border);border-radius:5px;padding:16px;position:relative;overflow:hidden;transition:border-color .2s;}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+@media(max-width:480px){.ig{grid-template-columns:1fr;gap:8px;}}
+.ic{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:14px;position:relative;overflow:hidden;}
 .ic::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);}
-.ic:hover{border-color:var(--border-gold);}
 .ih{display:flex;align-items:center;gap:9px;margin-bottom:10px;}
 .ii{font-size:20px;}
-.in_{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-light);letter-spacing:.5px;}
-.ie{font-size:9px;color:var(--text-dim);}
-.ib{font-size:13.5px;line-height:1.75;color:var(--text);}
+.in_{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-light);letter-spacing:.4px;}
+.ie{font-size:8.5px;color:var(--text-dim);}
+.ib{font-size:13px;line-height:1.78;color:var(--text);}
 .ib p{margin-bottom:7px;}
-
-/* SYNTHESIS */
-.syn{background:linear-gradient(135deg,var(--bg-panel),#1a1510);border:1px solid var(--border-gold);border-radius:6px;padding:24px;margin-bottom:28px;position:relative;}
+.syn{background:linear-gradient(135deg,var(--bg-panel),#1a1510);border:1px solid var(--border-gold);border-radius:7px;padding:20px 16px;margin-bottom:24px;position:relative;}
 .syn::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .syn-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
 .syn-lbl::after{content:'';flex:1;height:1px;background:var(--border-gold);}
-.syn-b{font-size:16px;line-height:1.85;color:var(--text);}
+.syn-b{font-size:15px;line-height:1.88;color:var(--text);}
 .syn-b p{margin-bottom:10px;}
-
 .reset-row{text-align:center;margin-bottom:40px;}
-.reset-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;padding:9px 24px;cursor:pointer;transition:all .2s;text-transform:uppercase;}
-.reset-btn:hover{border-color:var(--gold-dim);color:var(--gold-light);}
-
+.reset-btn{background:transparent;border:1px solid var(--border-gold);color:var(--text-dim);font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;padding:12px 28px;cursor:pointer;transition:all .2s;text-transform:uppercase;border-radius:3px;min-height:48px;}
+.reset-btn:active{border-color:var(--gold-dim);color:var(--gold-light);}
 footer{text-align:center;padding:16px;border-top:1px solid var(--border);}
 footer p{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--text-dim);}
-
-.err{background:rgba(139,42,42,.15);border:1px solid rgba(139,42,42,.4);border-radius:4px;padding:12px 16px;margin-bottom:14px;font-size:14px;color:#d48;display:none;}
+.err{background:rgba(139,42,42,.15);border:1px solid rgba(139,42,42,.4);border-radius:4px;padding:12px 14px;margin-bottom:14px;font-size:14px;color:#d48;display:none;}
 .err.show{display:block;}
+@supports(padding-bottom:env(safe-area-inset-bottom)){.wrap{padding-bottom:calc(60px + env(safe-area-inset-bottom));}}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <div class="orn"><span>✦</span></div>
   <h1 id="htitle">CONSELHO DOS GRANDES</h1>
   <p class="sub" id="hsub">Sabedoria Atemporal para Decisões de Alto Impacto</p>
 </header>
-
-<!-- API KEY -->
 <div class="api-panel">
-  <span class="api-label" id="apilbl">🔑 API Key Anthropic</span>
-  <input class="api-input" id="apikey" type="password" placeholder="sk-ant-...">
-  <button class="api-save" onclick="saveKey()" id="savebtn">Salvar</button>
-  <span class="api-status" id="apistatus" id="apistatustxt">Cole sua API Key para ativar o Conselho. Ela fica salva apenas no seu navegador.</span>
+  <div class="api-top">
+    <span class="api-label" id="apilbl">🔑 API Key Anthropic</span>
+    <input class="api-input" id="apikey" type="password" placeholder="sk-ant-..." autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+    <button class="api-save" onclick="saveKey()" id="savebtn">Salvar</button>
+  </div>
+  <span class="api-status" id="apistatus">Cole sua API Key para ativar o Conselho.</span>
 </div>
-
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('pt')">PT</button>
   <button class="lang-btn" onclick="setLang('en')">EN</button>
 </div>
-
 <div class="div"><div class="div-d"></div></div>
-
 <div class="w-bar">
   <div class="w-chip wj" id="w1">✝ Jesus — Peso 40%</div>
   <div class="w-chip wi" id="w2">Conselheiros — 30%</div>
   <div class="w-chip ws" id="w3">Síntese Final — 30%</div>
 </div>
-
 <p class="sec-lbl" id="lblsel">Selecione seus Conselheiros</p>
 <div class="grid" id="cgrid"></div>
-
 <div class="sel-ctrl">
   <button class="sm-btn" id="btnall" onclick="selectAll()">Todos</button>
   <button class="sm-btn" id="btnnone" onclick="deselectAll()">Nenhum</button>
 </div>
-
 <div class="div"><div class="div-d"></div></div>
-
 <div class="q-panel">
   <p class="q-lbl" id="qlbl">Sua Pergunta ao Conselho</p>
-  <textarea class="qi" id="qinput" rows="4" placeholder="Apresente sua dúvida, decisão ou dilema..."></textarea>
+  <textarea class="qi" id="qinput" rows="4" placeholder="Apresente sua dúvida, decisão ou dilema..." autocorrect="on" autocapitalize="sentences"></textarea>
   <div class="ctx-w">
     <span class="ctx-l" id="ctxlbl">Contexto (opcional)</span>
-    <input class="ci2" id="ctxinput" type="text" placeholder="Ex: Estou expandindo meu negócio para os EUA em maio de 2026...">
+    <input class="ci2" id="ctxinput" type="text" placeholder="Ex: Estou expandindo meu negócio para os EUA em maio de 2026..." autocorrect="on" autocapitalize="sentences">
   </div>
 </div>
-
 <div class="err" id="errbox"></div>
-
 <div class="sub-row">
   <button class="ask-btn" id="askbtn" onclick="askCouncil()">⚜ CONSULTAR O CONSELHO ⚜</button>
 </div>
-
 <div class="loading" id="loading">
   <div class="spinner"></div>
   <p class="lt" id="ltxt">O Conselho está deliberando...</p>
   <p class="ls" id="lsub">Aguarde a sabedoria dos séculos</p>
   <div class="progress-wrap"><div class="progress-bar" id="pbar"></div></div>
 </div>
-
 <div class="results" id="results">
   <div class="res-hdr">
     <p class="res-title" id="reslbl">Veredicto do Conselho</p>
@@ -234,323 +193,111 @@ footer p{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(-
   </div>
   <div class="reset-row"><button class="reset-btn" id="resetbtn" onclick="resetAll()">↩ Nova Consulta</button></div>
 </div>
-
 <footer><p id="ftxt">CONSELHO DOS GRANDES · AR Partners Solutions · Robson Bonaldi</p></footer>
 </div>
-
 <script>
-// ── ADVISORS ──────────────────────────────────────────────────────────────
-const ADVISORS = [
-  {id:'jesus',     icon:'✝',  name:'Jesus Cristo',         en:'Jesus Christ',         era:'I d.C.',         role:'Sabedoria Espiritual',      roleEn:'Spiritual Wisdom'},
-  {id:'aristotle', icon:'⚖️', name:'Aristóteles',          en:'Aristotle',            era:'384–322 a.C.',   role:'Filosofia & Lógica',        roleEn:'Philosophy & Logic'},
-  {id:'socrates',  icon:'🏛️', name:'Sócrates',             en:'Socrates',             era:'470–399 a.C.',   role:'Método Socrático',          roleEn:'Socratic Method'},
-  {id:'plato',     icon:'📜', name:'Platão',               en:'Plato',                era:'428–348 a.C.',   role:'Idealismo & Verdade',       roleEn:'Idealism & Truth'},
-  {id:'marcus',    icon:'👑', name:'Marco Aurélio',        en:'Marcus Aurelius',      era:'121–180 d.C.',   role:'Estoicismo Imperial',       roleEn:'Imperial Stoicism'},
-  {id:'seneca',    icon:'🕯️', name:'Sêneca',               en:'Seneca',               era:'4 a.C.–65 d.C.', role:'Estoicismo & Tempo',        roleEn:'Stoicism & Time'},
-  {id:'epictetus', icon:'⛓️', name:'Epicteto',             en:'Epictetus',            era:'50–135 d.C.',    role:'Liberdade Interior',        roleEn:'Inner Freedom'},
-  {id:'aquinas',   icon:'✠',  name:'Tomás de Aquino',     en:'Thomas Aquinas',       era:'1225–1274',      role:'Teologia & Razão',          roleEn:'Theology & Reason'},
-  {id:'nietzsche', icon:'⚡', name:'Nietzsche',            en:'Nietzsche',            era:'1844–1900',      role:'Vontade de Poder',          roleEn:'Will to Power'},
-  {id:'sartre',    icon:'🌀', name:'Sartre',               en:'Sartre',               era:'1905–1980',      role:'Existencialismo',           roleEn:'Existentialism'},
-  {id:'alexander', icon:'⚔️', name:'Alexandre, o Grande', en:'Alexander the Great',  era:'356–323 a.C.',   role:'Conquista & Estratégia',    roleEn:'Conquest & Strategy'},
-  {id:'napoleon',  icon:'🎖️', name:'Napoleão Bonaparte',  en:'Napoleon Bonaparte',   era:'1769–1821',      role:'Estratégia Militar',        roleEn:'Military Strategy'},
-  {id:'suntzu',    icon:'🐉', name:'Sun Tzu',              en:'Sun Tzu',              era:'544–496 a.C.',   role:'Arte da Guerra',            roleEn:'Art of War'},
-  {id:'jobs',      icon:'🍎', name:'Steve Jobs',           en:'Steve Jobs',           era:'1955–2011',      role:'Inovação & Visão',          roleEn:'Innovation & Vision'},
-  {id:'musk',      icon:'🚀', name:'Elon Musk',            en:'Elon Musk',            era:'1971–',          role:'Empreendedorismo Radical',  roleEn:'Radical Entrepreneurship'},
-  {id:'zuck',      icon:'💻', name:'Mark Zuckerberg',     en:'Mark Zuckerberg',      era:'1984–',          role:'Escala & Plataformas',      roleEn:'Scale & Platforms'},
-  {id:'buffett',   icon:'💰', name:'Warren Buffett',       en:'Warren Buffett',       era:'1930–',          role:'Valor & Paciência',         roleEn:'Value & Patience'},
-  {id:'gates',     icon:'🖥️', name:'Bill Gates',           en:'Bill Gates',           era:'1955–',          role:'Tecnologia & Filantropia',  roleEn:'Technology & Philanthropy'},
-  {id:'jordan',    icon:'🏀', name:'Michael Jordan',       en:'Michael Jordan',       era:'1963–',          role:'Excelência & Mentalidade',  roleEn:'Excellence & Mindset'},
-  {id:'frodeno',   icon:'🏊', name:'Jan Frodeno',          en:'Jan Frodeno',          era:'1981–',          role:'Triathlon & Alto Desempenho',roleEn:'Triathlon & Peak Performance'},
+const ADVISORS=[
+  {id:'jesus',icon:'✝',name:'Jesus Cristo',en:'Jesus Christ',era:'I d.C.',role:'Sabedoria Espiritual',roleEn:'Spiritual Wisdom'},
+  {id:'aristotle',icon:'⚖️',name:'Aristóteles',en:'Aristotle',era:'384–322 a.C.',role:'Filosofia & Lógica',roleEn:'Philosophy & Logic'},
+  {id:'socrates',icon:'🏛️',name:'Sócrates',en:'Socrates',era:'470–399 a.C.',role:'Método Socrático',roleEn:'Socratic Method'},
+  {id:'plato',icon:'📜',name:'Platão',en:'Plato',era:'428–348 a.C.',role:'Idealismo & Verdade',roleEn:'Idealism & Truth'},
+  {id:'marcus',icon:'👑',name:'Marco Aurélio',en:'Marcus Aurelius',era:'121–180 d.C.',role:'Estoicismo Imperial',roleEn:'Imperial Stoicism'},
+  {id:'seneca',icon:'🕯️',name:'Sêneca',en:'Seneca',era:'4 a.C.–65 d.C.',role:'Estoicismo & Tempo',roleEn:'Stoicism & Time'},
+  {id:'epictetus',icon:'⛓️',name:'Epicteto',en:'Epictetus',era:'50–135 d.C.',role:'Liberdade Interior',roleEn:'Inner Freedom'},
+  {id:'aquinas',icon:'✠',name:'Tomás de Aquino',en:'Thomas Aquinas',era:'1225–1274',role:'Teologia & Razão',roleEn:'Theology & Reason'},
+  {id:'nietzsche',icon:'⚡',name:'Nietzsche',en:'Nietzsche',era:'1844–1900',role:'Vontade de Poder',roleEn:'Will to Power'},
+  {id:'sartre',icon:'🌀',name:'Sartre',en:'Sartre',era:'1905–1980',role:'Existencialismo',roleEn:'Existentialism'},
+  {id:'alexander',icon:'⚔️',name:'Alexandre, o Grande',en:'Alexander the Great',era:'356–323 a.C.',role:'Conquista & Estratégia',roleEn:'Conquest & Strategy'},
+  {id:'napoleon',icon:'🎖️',name:'Napoleão Bonaparte',en:'Napoleon Bonaparte',era:'1769–1821',role:'Estratégia Militar',roleEn:'Military Strategy'},
+  {id:'suntzu',icon:'🐉',name:'Sun Tzu',en:'Sun Tzu',era:'544–496 a.C.',role:'Arte da Guerra',roleEn:'Art of War'},
+  {id:'jobs',icon:'🍎',name:'Steve Jobs',en:'Steve Jobs',era:'1955–2011',role:'Inovação & Visão',roleEn:'Innovation & Vision'},
+  {id:'musk',icon:'🚀',name:'Elon Musk',en:'Elon Musk',era:'1971–',role:'Empreendedorismo Radical',roleEn:'Radical Entrepreneurship'},
+  {id:'zuck',icon:'💻',name:'Mark Zuckerberg',en:'Mark Zuckerberg',era:'1984–',role:'Escala & Plataformas',roleEn:'Scale & Platforms'},
+  {id:'buffett',icon:'💰',name:'Warren Buffett',en:'Warren Buffett',era:'1930–',role:'Valor & Paciência',roleEn:'Value & Patience'},
+  {id:'gates',icon:'🖥️',name:'Bill Gates',en:'Bill Gates',era:'1955–',role:'Tecnologia & Filantropia',roleEn:'Technology & Philanthropy'},
+  {id:'jordan',icon:'🏀',name:'Michael Jordan',en:'Michael Jordan',era:'1963–',role:'Excelência & Mentalidade',roleEn:'Excellence & Mindset'},
+  {id:'frodeno',icon:'🏊',name:'Jan Frodeno',en:'Jan Frodeno',era:'1981–',role:'Triathlon & Alto Desempenho',roleEn:'Triathlon & Peak Performance'},
 ];
-
-let lang = 'pt';
-let sel = new Set(ADVISORS.map(a => a.id));
-let apiKey = localStorage.getItem('cdg_apikey') || '';
-
-// ── TRANSLATIONS ──────────────────────────────────────────────────────────
-const T = {
-  pt:{
-    title:'CONSELHO DOS GRANDES', sub:'Sabedoria Atemporal para Decisões de Alto Impacto',
-    apilbl:'🔑 API Key Anthropic', savebtn:'Salvar',
-    apistatus:'Cole sua API Key. Ela fica salva apenas no seu navegador (localStorage).',
-    apiok:'✓ API Key salva com sucesso.', apierr:'⚠ Chave inválida. Deve começar com sk-ant-',
-    w1:'✝ Jesus — Peso 40%', w2:'Conselheiros — 30%', w3:'Síntese Final — 30%',
-    lblsel:'Selecione seus Conselheiros', btnall:'Todos', btnnone:'Nenhum',
-    qlbl:'Sua Pergunta ao Conselho', ctxlbl:'Contexto (opcional)',
-    qph:'Apresente sua dúvida, decisão ou dilema...',
-    ctxph:'Ex: Estou expandindo meu negócio para os EUA em maio de 2026...',
-    askbtn:'⚜ CONSULTAR O CONSELHO ⚜',
-    ltxt:'O Conselho está deliberando...', lsub:'Aguarde a sabedoria dos séculos',
-    reslbl:'Veredicto do Conselho', indlbl:'Vozes do Conselho',
-    synlbl:'⚜ Síntese do Conselho — 30%', resetbtn:'↩ Nova Consulta',
-    ftxt:'CONSELHO DOS GRANDES · AR Partners Solutions · Robson Bonaldi',
-    errq:'⚠ Escreva sua pergunta antes de consultar.',
-    errkey:'⚠ Insira sua API Key Anthropic antes de consultar.',
-    errsel:'⚠ Selecione ao menos um conselheiro.',
-    jwbadge:'✝ Peso Primário — 40%', jname:'Jesus Cristo', jrole:'Sabedoria Espiritual e Moral',
-  },
-  en:{
-    title:'COUNCIL OF THE GREAT', sub:'Timeless Wisdom for High-Stakes Decisions',
-    apilbl:'🔑 Anthropic API Key', savebtn:'Save',
-    apistatus:'Paste your API Key. Stored only in your browser (localStorage).',
-    apiok:'✓ API Key saved successfully.', apierr:'⚠ Invalid key. Must start with sk-ant-',
-    w1:'✝ Jesus — Weight 40%', w2:'Advisors — 30%', w3:'Final Synthesis — 30%',
-    lblsel:'Select your Advisors', btnall:'All', btnnone:'None',
-    qlbl:'Your Question to the Council', ctxlbl:'Context (optional)',
-    qph:'Present your dilemma, decision or doubt...',
-    ctxph:'E.g.: I am expanding my business to the USA in May 2026...',
-    askbtn:'⚜ CONSULT THE COUNCIL ⚜',
-    ltxt:'The Council is deliberating...', lsub:'Await the wisdom of the ages',
-    reslbl:'Council Verdict', indlbl:'Voices of the Council',
-    synlbl:'⚜ Council Synthesis — 30%', resetbtn:'↩ New Consultation',
-    ftxt:'COUNCIL OF THE GREAT · AR Partners Solutions · Robson Bonaldi',
-    errq:'⚠ Please write your question before consulting.',
-    errkey:'⚠ Please enter your Anthropic API Key first.',
-    errsel:'⚠ Select at least one advisor.',
-    jwbadge:'✝ Primary Weight — 40%', jname:'Jesus Christ', jrole:'Spiritual and Moral Wisdom',
-  }
+let lang='pt',sel=new Set(ADVISORS.map(a=>a.id)),apiKey=localStorage.getItem('cdg_apikey')||'';
+const T={
+  pt:{title:'CONSELHO DOS GRANDES',sub:'Sabedoria Atemporal para Decisões de Alto Impacto',apilbl:'🔑 API Key Anthropic',savebtn:'Salvar',apistatus:'Cole sua API Key. Salva apenas no seu navegador.',apiok:'✓ API Key salva com sucesso.',apierr:'⚠ Chave inválida. Deve começar com sk-ant-',w1:'✝ Jesus — Peso 40%',w2:'Conselheiros — 30%',w3:'Síntese Final — 30%',lblsel:'Selecione seus Conselheiros',btnall:'Todos',btnnone:'Nenhum',qlbl:'Sua Pergunta ao Conselho',ctxlbl:'Contexto (opcional)',qph:'Apresente sua dúvida, decisão ou dilema...',ctxph:'Ex: Estou expandindo meu negócio para os EUA em maio de 2026...',askbtn:'⚜ CONSULTAR O CONSELHO ⚜',ltxt:'O Conselho está deliberando...',lsub:'Aguarde a sabedoria dos séculos',reslbl:'Veredicto do Conselho',indlbl:'Vozes do Conselho',synlbl:'⚜ Síntese do Conselho — 30%',resetbtn:'↩ Nova Consulta',ftxt:'CONSELHO DOS GRANDES · AR Partners Solutions · Robson Bonaldi',errq:'⚠ Escreva sua pergunta antes de consultar.',errkey:'⚠ Insira sua API Key Anthropic antes de consultar.',errsel:'⚠ Selecione ao menos um conselheiro.',jwbadge:'✝ Peso Primário — 40%',jname:'Jesus Cristo',jrole:'Sabedoria Espiritual e Moral'},
+  en:{title:'COUNCIL OF THE GREAT',sub:'Timeless Wisdom for High-Stakes Decisions',apilbl:'🔑 Anthropic API Key',savebtn:'Save',apistatus:'Paste your API Key. Stored only in your browser.',apiok:'✓ API Key saved successfully.',apierr:'⚠ Invalid key. Must start with sk-ant-',w1:'✝ Jesus — Weight 40%',w2:'Advisors — 30%',w3:'Final Synthesis — 30%',lblsel:'Select your Advisors',btnall:'All',btnnone:'None',qlbl:'Your Question to the Council',ctxlbl:'Context (optional)',qph:'Present your dilemma, decision or doubt...',ctxph:'E.g.: I am expanding my business to the USA in May 2026...',askbtn:'⚜ CONSULT THE COUNCIL ⚜',ltxt:'The Council is deliberating...',lsub:'Await the wisdom of the ages',reslbl:'Council Verdict',indlbl:'Voices of the Council',synlbl:'⚜ Council Synthesis — 30%',resetbtn:'↩ New Consultation',ftxt:'COUNCIL OF THE GREAT · AR Partners Solutions · Robson Bonaldi',errq:'⚠ Please write your question before consulting.',errkey:'⚠ Please enter your Anthropic API Key first.',errsel:'⚠ Select at least one advisor.',jwbadge:'✝ Primary Weight — 40%',jname:'Jesus Christ',jrole:'Spiritual and Moral Wisdom'}
 };
-
-// ── INIT ──────────────────────────────────────────────────────────────────
-function init(){
-  if(apiKey){
-    document.getElementById('apikey').value = apiKey;
-    document.getElementById('apistatus').textContent = T[lang].apiok;
-    document.getElementById('apistatus').className = 'api-status ok';
-  }
-  renderGrid();
-  applyLang();
-}
-
-function saveKey(){
-  const val = document.getElementById('apikey').value.trim();
-  const st = document.getElementById('apistatus');
-  if(!val.startsWith('sk-ant-') && !val.startsWith('sk-')){
-    st.textContent = T[lang].apierr; st.className='api-status err'; return;
-  }
-  apiKey = val;
-  localStorage.setItem('cdg_apikey', val);
-  st.textContent = T[lang].apiok; st.className='api-status ok';
-}
-
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
-  applyLang(); renderGrid();
-}
-
-function applyLang(){
-  const t=T[lang];
-  const ids={htitle:'title',hsub:'sub',apilbl:'apilbl',savebtn:'savebtn',
-    w1:'w1',w2:'w2',w3:'w3',lblsel:'lblsel',btnall:'btnall',btnnone:'btnnone',
-    qlbl:'qlbl',ctxlbl:'ctxlbl',askbtn:'askbtn',ltxt:'ltxt',lsub:'lsub',
-    reslbl:'reslbl',indlbl:'indlbl',synlbl:'synlbl',resetbtn:'resetbtn',
-    ftxt:'ftxt',jwbadge:'jwbadge',jname:'jname',jrole:'jrole'};
-  Object.entries(ids).forEach(([elId,key])=>{
-    const el=document.getElementById(elId);
-    if(el) el.textContent=t[key]||'';
-  });
-  document.getElementById('qinput').placeholder=t.qph;
-  document.getElementById('ctxinput').placeholder=t.ctxph;
-  const st=document.getElementById('apistatus');
-  if(!apiKey){ st.textContent=t.apistatus; st.className='api-status'; }
-}
-
-function renderGrid(){
-  const g=document.getElementById('cgrid'); g.innerHTML='';
-  ADVISORS.forEach(a=>{
-    const b=document.createElement('div');
-    b.className='c-btn'+(sel.has(a.id)?' on':'')+(a.id==='jesus'?' jc':'');
-    b.id='cb-'+a.id;
-    const nm=lang==='en'?a.en:a.name;
-    b.innerHTML=`<span class="ci">${a.icon}</span><span class="cn">${nm}</span><span class="ce">${a.era}</span>${a.id==='jesus'?`<span class="jbadge">${lang==='pt'?'40% PESO':'40% WEIGHT'}</span>`:''}`;
-    b.onclick=()=>{
-      if(a.id==='jesus') return;
-      sel.has(a.id)?sel.delete(a.id):sel.add(a.id);
-      b.classList.toggle('on');
-    };
-    g.appendChild(b);
-  });
-}
-
+function init(){if(apiKey){document.getElementById('apikey').value=apiKey;document.getElementById('apistatus').textContent=T[lang].apiok;document.getElementById('apistatus').className='api-status ok';}renderGrid();applyLang();}
+function saveKey(){const val=document.getElementById('apikey').value.trim();const st=document.getElementById('apistatus');if(!val.startsWith('sk-ant-')&&!val.startsWith('sk-')){st.textContent=T[lang].apierr;st.className='api-status err';return;}apiKey=val;localStorage.setItem('cdg_apikey',val);st.textContent=T[lang].apiok;st.className='api-status ok';}
+function setLang(l){lang=l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));applyLang();renderGrid();}
+function applyLang(){const t=T[lang];const ids={htitle:'title',hsub:'sub',apilbl:'apilbl',savebtn:'savebtn',w1:'w1',w2:'w2',w3:'w3',lblsel:'lblsel',btnall:'btnall',btnnone:'btnnone',qlbl:'qlbl',ctxlbl:'ctxlbl',askbtn:'askbtn',ltxt:'ltxt',lsub:'lsub',reslbl:'reslbl',indlbl:'indlbl',synlbl:'synlbl',resetbtn:'resetbtn',ftxt:'ftxt',jwbadge:'jwbadge',jname:'jname',jrole:'jrole'};Object.entries(ids).forEach(([elId,key])=>{const el=document.getElementById(elId);if(el)el.textContent=t[key]||'';});document.getElementById('qinput').placeholder=t.qph;document.getElementById('ctxinput').placeholder=t.ctxph;const st=document.getElementById('apistatus');if(!apiKey){st.textContent=t.apistatus;st.className='api-status';}}
+function renderGrid(){const g=document.getElementById('cgrid');g.innerHTML='';ADVISORS.forEach(a=>{const b=document.createElement('div');b.className='c-btn'+(sel.has(a.id)?' on':'')+(a.id==='jesus'?' jc':'');b.id='cb-'+a.id;const nm=lang==='en'?a.en:a.name;b.innerHTML=`<span class="ci">${a.icon}</span><span class="cn">${nm}</span><span class="ce">${a.era}</span>${a.id==='jesus'?`<span class="jbadge">${lang==='pt'?'40% PESO':'40% WEIGHT'}</span>`:''}`;b.onclick=()=>{if(a.id==='jesus')return;sel.has(a.id)?sel.delete(a.id):sel.add(a.id);b.classList.toggle('on');};g.appendChild(b);});}
 function selectAll(){ADVISORS.forEach(a=>{sel.add(a.id);document.getElementById('cb-'+a.id)?.classList.add('on');});}
 function deselectAll(){ADVISORS.forEach(a=>{if(a.id!=='jesus'){sel.delete(a.id);document.getElementById('cb-'+a.id)?.classList.remove('on');}});}
-
-function fmt(txt){
-  if(!txt) return '<p style="color:var(--text-dim);font-style:italic">—</p>';
-  return txt.split(/\n\n+/).filter(p=>p.trim()).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');
-}
-
-function showErr(msg){
-  const e=document.getElementById('errbox');
-  e.textContent=msg; e.classList.add('show');
-  setTimeout(()=>e.classList.remove('show'),5000);
-}
-
-// ── PROGRESS ANIMATION ────────────────────────────────────────────────────
+function fmt(txt){if(!txt)return '<p style="color:var(--text-dim);font-style:italic">—</p>';return txt.split(/\n\n+/).filter(p=>p.trim()).map(p=>`<p>${p.replace(/\n/g,'<br>')}</p>`).join('');}
+function showErr(msg){const e=document.getElementById('errbox');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),5000);}
 let progInterval;
-function startProgress(){
-  const bar=document.getElementById('pbar');
-  bar.style.width='0%'; let w=0;
-  progInterval=setInterval(()=>{
-    w=Math.min(w+(Math.random()*3),88);
-    bar.style.width=w+'%';
-  },400);
-}
-function endProgress(){
-  clearInterval(progInterval);
-  document.getElementById('pbar').style.width='100%';
-}
-
-// ── ASK ───────────────────────────────────────────────────────────────────
+function startProgress(){const bar=document.getElementById('pbar');bar.style.width='0%';let w=0;progInterval=setInterval(()=>{w=Math.min(w+(Math.random()*3),88);bar.style.width=w+'%';},400);}
+function endProgress(){clearInterval(progInterval);document.getElementById('pbar').style.width='100%';}
 async function askCouncil(){
   const q=document.getElementById('qinput').value.trim();
   const ctx=document.getElementById('ctxinput').value.trim();
   const t=T[lang];
-
-  if(!apiKey){ showErr(t.errkey); return; }
-  if(!q){ showErr(t.errq); return; }
-  if(sel.size===0){ showErr(t.errsel); return; }
-
+  if(!apiKey){showErr(t.errkey);return;}
+  if(!q){showErr(t.errq);return;}
+  if(sel.size===0){showErr(t.errsel);return;}
+  document.activeElement?.blur();
   const active=ADVISORS.filter(a=>sel.has(a.id));
   const nonJesus=active.filter(a=>a.id!=='jesus');
   const isEn=lang==='en';
-
   document.getElementById('askbtn').disabled=true;
   document.getElementById('loading').classList.add('show');
   document.getElementById('results').classList.remove('show');
   document.getElementById('resq').textContent='"'+q+'"';
   startProgress();
-
+  setTimeout(()=>document.getElementById('loading').scrollIntoView({behavior:'smooth',block:'center'}),100);
   const advisorList=active.map(a=>(isEn?a.en:a.name)+' ('+a.era+')').join(', ');
   const ids=nonJesus.map(a=>a.id).join(', ');
-
-  const sys = isEn
-    ? `You are simulating a council of the greatest minds in history, each speaking in their own authentic voice, philosophy, and worldview.
-Return ONLY a valid JSON object. No markdown. No code fences. No text outside JSON.
-JSON structure:
-{
-  "jesus": "4-5 rich paragraphs in Jesus Christ's voice. Draw from Gospels, Sermon on the Mount, parables, and Biblical wisdom. Address the question with spiritual depth, compassion, truth, and moral clarity. Reference specific scripture or parables when apt.",
-  "advisors": [{"id":"exact_id","response":"3-4 paragraphs in that person's authentic historical/intellectual voice. Reference their real philosophy, quotes, and works. Be specific, not generic."}],
-  "synthesis": "4-5 paragraphs. A wise, integrated conclusion that weaves together spiritual, philosophical, strategic, and practical dimensions. Give concrete, actionable direction."
-}`
-    : `Você está simulando um conselho dos maiores pensadores da história, cada um falando em sua própria voz autêntica, filosofia e visão de mundo.
-Retorne APENAS um objeto JSON válido. Sem markdown. Sem blocos de código. Sem texto fora do JSON.
-Estrutura JSON:
-{
-  "jesus": "4-5 parágrafos ricos na voz de Jesus Cristo. Baseie-se nos Evangelhos, Sermão da Montanha, parábolas e sabedoria bíblica. Responda com profundidade espiritual, compaixão, verdade e clareza moral. Referencie escrituras ou parábolas específicas quando apropriado.",
-  "advisors": [{"id":"id_exato","response":"3-4 parágrafos na voz histórica/intelectual autêntica dessa pessoa. Referencie sua filosofia real, citações e obras. Seja específico, não genérico."}],
-  "synthesis": "4-5 parágrafos. Uma conclusão sábia e integrada que entrelace dimensões espiritual, filosófica, estratégica e prática. Ofereça direção concreta e acionável."
-}`;
-
-  const usr = isEn
-    ? `Question: ${q}${ctx?'\nContext: '+ctx:''}
-
-Council members active: ${advisorList}
-
-For the "advisors" array, use EXACTLY these IDs (one entry per person, excluding jesus): ${ids}
-
-Remember:
-- Jesus speaks with Biblical depth — 40% weight (most important voice)
-- Each advisor speaks authentically from their era and philosophy — 30% weight
-- The synthesis integrates all into unified wisdom — 30% weight
-- Michael Jordan draws from his basketball philosophy: competitive fire, "be like water under pressure", the Last Dance, mental toughness
-- Jan Frodeno draws from Ironman triathlon: pacing, suffering as growth, transition from Olympic gold to Ironman World Champion, process over outcome
-- Be substantial. No generic platitudes. Real wisdom.`
-    : `Pergunta: ${q}${ctx?'\nContexto: '+ctx:''}
-
-Membros ativos do conselho: ${advisorList}
-
-Para o array "advisors", use EXATAMENTE estes IDs (uma entrada por pessoa, excluindo jesus): ${ids}
-
-Lembre-se:
-- Jesus fala com profundidade bíblica — peso 40% (voz mais importante)
-- Cada conselheiro fala autenticamente de sua época e filosofia — peso 30%
-- A síntese integra tudo em sabedoria unificada — peso 30%
-- Michael Jordan: fogo competitivo, "seja como água sob pressão", The Last Dance, dureza mental, "talento vence jogos, mas trabalho em equipe vence campeonatos"
-- Jan Frodeno: filosofia do Ironman, ritmo e sofrimento como crescimento, transição de ouro olímpico a campeão mundial do Ironman, processo acima do resultado, longevidade atlética
-- Seja substancial. Sem lugares-comuns genéricos. Sabedoria real e específica.`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify({
-        model: 'claude-opus-4-5',
-        max_tokens: 10000,
-        system: sys,
-        messages: [{role:'user', content:usr}]
-      })
-    });
-
-    if(!res.ok){
-      const errData = await res.json().catch(()=>({}));
-      throw new Error(errData.error?.message || 'HTTP '+res.status);
-    }
-
-    const data = await res.json();
-    const raw = data.content?.map(c=>c.text||'').join('')||'';
-
+  const sys=isEn
+    ?`You are simulating a council of the greatest minds in history, each speaking in their own authentic voice, philosophy, and worldview.\nReturn ONLY a valid JSON object. No markdown. No code fences. No text outside JSON.\nJSON structure:\n{\n  "jesus": "4-5 rich paragraphs in Jesus Christ's voice.",\n  "advisors": [{"id":"exact_id","response":"3-4 paragraphs in that person's authentic voice."}],\n  "synthesis": "4-5 paragraphs. Wise integrated conclusion with concrete actionable direction."\n}`
+    :`Você está simulando um conselho dos maiores pensadores da história, cada um falando em sua própria voz autêntica.\nRetorne APENAS um objeto JSON válido. Sem markdown. Sem blocos de código. Sem texto fora do JSON.\nEstrutura JSON:\n{\n  "jesus": "4-5 parágrafos ricos na voz de Jesus Cristo. Baseie-se nos Evangelhos, parábolas e sabedoria bíblica.",\n  "advisors": [{"id":"id_exato","response":"3-4 parágrafos na voz autêntica dessa pessoa."}],\n  "synthesis": "4-5 parágrafos. Conclusão sábia e integrada com direção concreta e acionável."\n}`;
+  const usr=isEn
+    ?`Question: ${q}${ctx?'\nContext: '+ctx:''}\n\nCouncil members active: ${advisorList}\n\nFor the "advisors" array, use EXACTLY these IDs (excluding jesus): ${ids}\n\n- Jesus: Biblical depth, 40% weight\n- Each advisor: authentic voice from their era, 30% weight\n- Synthesis: unified wisdom, 30% weight\n- Michael Jordan: competitive fire, Last Dance, mental toughness\n- Jan Frodeno: Ironman pacing, suffering as growth, process over outcome\n- Be substantial. Real wisdom, not platitudes.`
+    :`Pergunta: ${q}${ctx?'\nContexto: '+ctx:''}\n\nMembros ativos: ${advisorList}\n\nPara o array "advisors", use EXATAMENTE estes IDs (excluindo jesus): ${ids}\n\n- Jesus: profundidade bíblica, peso 40%\n- Cada conselheiro: voz autêntica de sua época, peso 30%\n- Síntese: sabedoria unificada, peso 30%\n- Michael Jordan: fogo competitivo, The Last Dance, dureza mental\n- Jan Frodeno: filosofia do Ironman, ritmo, sofrimento como crescimento\n- Seja substancial. Sabedoria real, não lugares-comuns.`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-opus-4-5',max_tokens:10000,system:sys,messages:[{role:'user',content:usr}]})});
+    if(!res.ok){const errData=await res.json().catch(()=>({}));throw new Error(errData.error?.message||'HTTP '+res.status);}
+    const data=await res.json();
+    const raw=data.content?.map(c=>c.text||'').join('')||'';
     let parsed;
-    try {
-      const clean = raw.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
-      const s=clean.indexOf('{'); const e=clean.lastIndexOf('}');
-      if(s===-1||e===-1) throw new Error('No JSON object found');
-      parsed = JSON.parse(clean.substring(s,e+1));
-    } catch(e){ throw new Error('JSON parse: '+e.message+'\n\nRaw: '+raw.substring(0,300)); }
-
+    try{const clean=raw.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();const s=clean.indexOf('{');const e=clean.lastIndexOf('}');if(s===-1||e===-1)throw new Error('No JSON');parsed=JSON.parse(clean.substring(s,e+1));}
+    catch(e){throw new Error('Parse: '+e.message);}
     endProgress();
-    renderResults(parsed, nonJesus, isEn);
-
-  } catch(err) {
+    renderResults(parsed,nonJesus,isEn);
+  }catch(err){
     endProgress();
-    console.error(err);
     document.getElementById('synbody').innerHTML=`<p style="color:#d48">⚠ Erro: ${err.message}</p><p style="color:var(--text-dim);font-size:13px;margin-top:8px">Verifique sua API Key e conexão.</p>`;
     document.getElementById('jbody').innerHTML='';
     document.getElementById('igrid').innerHTML='';
     document.getElementById('results').classList.add('show');
   }
-
   document.getElementById('loading').classList.remove('show');
   document.getElementById('askbtn').disabled=false;
 }
-
-function renderResults(data, nonJesus, isEn){
-  document.getElementById('jbody').innerHTML = fmt(data.jesus||'');
-
-  const ig = document.getElementById('igrid'); ig.innerHTML='';
+function renderResults(data,nonJesus,isEn){
+  document.getElementById('jbody').innerHTML=fmt(data.jesus||'');
+  const ig=document.getElementById('igrid');ig.innerHTML='';
   nonJesus.forEach(adv=>{
-    const entry = (data.advisors||[]).find(a=>a.id===adv.id);
-    if(!entry) return;
-    const nm = isEn?adv.en:adv.name;
-    const rl = isEn?adv.roleEn:adv.role;
-    const card = document.createElement('div');
+    const entry=(data.advisors||[]).find(a=>a.id===adv.id);
+    if(!entry)return;
+    const nm=isEn?adv.en:adv.name;
+    const rl=isEn?adv.roleEn:adv.role;
+    const card=document.createElement('div');
     card.className='ic';
     card.innerHTML=`<div class="ih"><span class="ii">${adv.icon}</span><div><div class="in_">${nm}</div><div class="ie">${rl} · ${adv.era}</div></div></div><div class="ib">${fmt(entry.response||'')}</div>`;
     ig.appendChild(card);
   });
-
-  document.getElementById('synbody').innerHTML = fmt(data.synthesis||'');
+  document.getElementById('synbody').innerHTML=fmt(data.synthesis||'');
   document.getElementById('results').classList.add('show');
-  setTimeout(()=>document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'}),120);
+  setTimeout(()=>document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'}),150);
 }
-
-function resetAll(){
-  document.getElementById('results').classList.remove('show');
-  document.getElementById('qinput').value='';
-  document.getElementById('ctxinput').value='';
-  document.getElementById('resq').textContent='';
-  document.getElementById('jbody').innerHTML='';
-  document.getElementById('igrid').innerHTML='';
-  document.getElementById('synbody').innerHTML='';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
+function resetAll(){document.getElementById('results').classList.remove('show');document.getElementById('qinput').value='';document.getElementById('ctxinput').value='';document.getElementById('resq').textContent='';document.getElementById('jbody').innerHTML='';document.getElementById('igrid').innerHTML='';document.getElementById('synbody').innerHTML='';window.scrollTo({top:0,behavior:'smooth'});}
 init();
 </script>
 </body>
